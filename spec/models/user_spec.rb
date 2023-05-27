@@ -84,23 +84,68 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate_with_credentials' do
     it 'should allow successful authentication with emails with leading whitespace' do
-      pending 'in progress'
+      @user = User.create({
+        first_name: 'John',
+        last_name: 'Donald',
+        email: 'email@email.com',
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
+      })
+      
+      authenticated_user = User.authenticate_with_credentials ' email@email.com', @user.password
+      expect(authenticated_user).to_not be_nil
     end
 
     it 'should allow successful authentication with emails with trailing whitespace' do
-      pending 'in progress'
+      @user = User.create({
+        first_name: 'John',
+        last_name: 'Donald',
+        email: 'email@email.com',
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
+      })
+      
+      authenticated_user = User.authenticate_with_credentials 'email@email.com ', @user.password
+      expect(authenticated_user).to_not be_nil
     end
 
     it 'should allow successful authentication with emails with mismatching case' do
-      pending 'in progress'
+      @user = User.create({
+        first_name: 'John',
+        last_name: 'Donald',
+        email: 'email@email.com',
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
+      })
+      
+      authenticated_user = User.authenticate_with_credentials 'eMaiL@eMAIl.com', @user.password
+      expect(authenticated_user).to_not be_nil
     end
     
     it 'should allow successful authentication given the correct email and password combination' do
-      pending 'in progress'
+      @user = User.create({
+        first_name: 'John',
+        last_name: 'Donald',
+        email: 'email@email.com',
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
+      })
+      
+      authenticated_user = User.authenticate_with_credentials @user.email, @user.password
+      expect(authenticated_user).to_not be_nil
     end
 
     it 'should not allow successful authentication given the incorrect email and password combination' do
-      pending 'in progress'
+      @user = User.create({
+        first_name: 'John',
+        last_name: 'Donald',
+        email: 'email@email.com',
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
+      })
+      
+      authenticated_user = User.authenticate_with_credentials 'Eggo', 'Waffles'
+      expect(authenticated_user).to be_nil
     end
   end
 
