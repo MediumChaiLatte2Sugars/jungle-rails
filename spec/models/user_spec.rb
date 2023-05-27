@@ -81,4 +81,27 @@ RSpec.describe User, type: :model do
       expect(@user.errors[:last_name]).to include("can't be blank")
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    it 'should allow successful authentication with emails with leading whitespace' do
+      pending 'in progress'
+    end
+
+    it 'should allow successful authentication with emails with trailing whitespace' do
+      pending 'in progress'
+    end
+
+    it 'should allow successful authentication with emails with mismatching case' do
+      pending 'in progress'
+    end
+    
+    it 'should allow successful authentication given the correct email and password combination' do
+      pending 'in progress'
+    end
+
+    it 'should not allow successful authentication given the incorrect email and password combination' do
+      pending 'in progress'
+    end
+  end
+
 end
