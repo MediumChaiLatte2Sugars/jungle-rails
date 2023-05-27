@@ -7,8 +7,8 @@ RSpec.describe User, type: :model do
         first_name: 'John',
         last_name: 'Doe',
         email: 'johndoe@example.com',
-        password: 'password',
-        password_confirmation: 'word'
+        password: 'Passw0rd!^',
+        password_confirmation: 'passw0rd!!'
       })
 
       @user.valid?
@@ -22,8 +22,8 @@ RSpec.describe User, type: :model do
         first_name: 'John',
         last_name: 'Doe',
         email: nil,
-        password: 'password',
-        password_confirmation: 'password'
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
       })
 
       @user.valid?
@@ -36,16 +36,16 @@ RSpec.describe User, type: :model do
         first_name: 'John',
         last_name: 'Doe',
         email: 'email@email.com',
-        password: 'password',
-        password_confirmation: 'password'
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
       })
 
       @user2 = User.create({
         first_name: 'John',
         last_name: 'Doe',
         email: @user.email.upcase,
-        password: 'password',
-        password_confirmation: 'password'
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
       })
 
       @user2.valid?
@@ -58,8 +58,8 @@ RSpec.describe User, type: :model do
         first_name: nil,
         last_name: 'Doe',
         email: 'email@email.com',
-        password: 'password',
-        password_confirmation: 'password'
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
       })
 
       @user.valid?
@@ -72,8 +72,8 @@ RSpec.describe User, type: :model do
         first_name: 'John',
         last_name: nil,
         email: 'email@email.com',
-        password: 'password',
-        password_confirmation: 'password'
+        password: 'Passw0rd!^',
+        password_confirmation: 'Passw0rd!^'
       })
 
       @user.valid?
