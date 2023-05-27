@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def self.authenticate_with_credentials email, password
     # Find the user with the provided email (case-insensitive)
-    user = User.find_by(email: email.downcase)
+    user = User.find_by(email: email.downcase.strip)
 
     # Check if the user exists and the password is correct
     if user && user.authenticate(password)
